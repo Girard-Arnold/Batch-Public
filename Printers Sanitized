@@ -1,0 +1,21 @@
+@ECHO Installation de l'imprimante du site...
+
+@CALL :PRINTERS
+
+@ECHO Fin de script.
+@ECHO Pensez q effacer ce script si present sur le disque.
+pause
+EXIT
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+:PRINTERS
+IF %computername:~2,3%==BRI start /b /w \\server1\FRBRI-PRINTER
+IF %computername:~2,3%==HQR start /b /w \\server2\impression-badge
+IF %computername:~2,3%==FLE start /b /w \\server3\impressionbadge
+IF %computername:~2,3%==MER start /b /w \\server4\impression-badge
+REM IF %computername:~0,5%==BLESE start /b /w \\TO-DO
+@GOTO :EOF
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
